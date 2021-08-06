@@ -717,9 +717,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   horizontalSpeed: 2
-  verticalForse: 8
-  yVelosity: 0
-  jumpDirection: {x: 0, y: 1}
+  verticalForce: 8
+  verticalForceAfterWallCollision: 4
 --- !u!50 &1683181419
 Rigidbody2D:
   serializedVersion: 4
