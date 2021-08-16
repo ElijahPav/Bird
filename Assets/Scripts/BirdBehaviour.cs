@@ -1,18 +1,22 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class BirdBehaviour : MonoBehaviour
 {
     [SerializeField] private float horizontalSpeed;
     [SerializeField] private float verticalForce;
     [SerializeField] private float verticalForceAfterWallCollision;
+    public event Action birdDeth;
     private float direction = 1;
     private Rigidbody2D rb;
+    private Transform tr;
     private const string wallTag = "Wall";
     private const string spikeTag = "Spike";
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        tr = transform;
     }
 
     private void FixedUpdate()
@@ -42,8 +46,24 @@ public class BirdBehaviour : MonoBehaviour
 
         if (collision.gameObject.CompareTag(spikeTag))
         {
-            GameManager.manager.PlayerDeth();
+            birdDeth?.Invoke();
+            Deth();
+            //GameController.Instance.BirdDeth();
             Debug.Log("Шип");
         }
+    }
+
+    public void Deth()
+    {
+        gameObject.SetActive(false);
+        birdDeth?.Invoke();
+    }
+
+    public void Reborn()
+    {
+        transform.position = Vector3.zero;
+        transform.eulerAngles = Vector3.zero;
+        direction = 1;
+        gameObject.SetActive(true);
     }
 }
