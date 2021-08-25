@@ -5,11 +5,12 @@ using Object = UnityEngine.Object;
 
 public class GameController : SingletonMono<GameController>
 {
-    [SerializeField] private StartButton startButton;
+     private StartButton startButton;
     [SerializeField] private BirdBehaviour bird;
 
     private void Start()
     {
+        startButton = UIController.Instance.startButton;    
         startButton.StartButtonClick += StartButtonClick;
     }
 

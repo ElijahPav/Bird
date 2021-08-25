@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class UIController : SingletonMono<UIController>
 {
-    [SerializeField] private StartButton startButton;
+    [SerializeField] public StartButton startButton;
     [SerializeField] private BirdBehaviour bird;
 
     private void Start()
