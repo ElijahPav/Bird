@@ -1,18 +1,22 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+//todo: неймспейсы
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class UIController : SingletonMono<UIController>
 {
-    [SerializeField] public StartButton startButton;
+    //todo: если поле публичное, то оно должно быть с большой буквы
+    //в идеале сделать её через public get; private set
+     public StartButton startButton;
     [SerializeField] private BirdBehaviour bird;
 
     private void Start()
     {
         startButton.StartButtonClick += StartButtonClick;
-        bird.birdDeth += BirdDeth;
+        bird.birdDeath += BirdDeth;
     }
 
     private void StartButtonClick()

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2303445908139245863}
   m_Layer: 0
   m_Name: Bird
-  m_TagString: Untagged
+  m_TagString: Bird
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
-  m_Size: {x: 0.049, y: 0.049}
+  m_Size: {x: 0.043741904, y: 0.04506006}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -97,18 +97,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0029504513, y: -0.00030331686}
+  m_Offset: {x: 0.0022500786, y: -0.00007008016}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.64, y: 0.64}
-    newSize: {x: 0.049, y: 0.049}
+    newSize: {x: 0.043741904, y: 0.04506006}
     adaptiveTilingThreshold: 0.5
     drawMode: 1
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.037948966, y: 0.02890139}
+  m_Size: {x: 0.032812893, y: 0.024703007}
   m_EdgeRadius: 0
 --- !u!50 &3442395159055588619
 Rigidbody2D:
@@ -143,6 +143,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa9211d308bac044185c930952114dbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalSpeed: 2
+  horizontalSpeed: 3
   verticalForce: 8
   verticalForceAfterWallCollision: 4

@@ -1,8 +1,11 @@
 ﻿using UnityEngine;
 
+//todo: советую приводить кодярник из интернета к кодстайлу, который принят на проекте
+
 public class SingletonMono<T> : MonoBehaviour where T : MonoBehaviour
 {
     private static T instance;
+
     public static T Instance
     {
         get
@@ -14,7 +17,7 @@ public class SingletonMono<T> : MonoBehaviour where T : MonoBehaviour
             return instance;
         }
     }
- 
+
     protected void Awake()
     {
         if (instance == null)
@@ -22,25 +25,26 @@ public class SingletonMono<T> : MonoBehaviour where T : MonoBehaviour
         else if (instance != this)
             DestroySelf();
     }
- 
+
     protected void OnValidate()
     {
         if (instance == null)
             instance = this as T;
         else if (instance != this)
         {
-            Debug.LogError("Singleton<"+this.GetType() + "> already has an instance on scene. Component will be destroyed.");
+            Debug.LogError("Singleton<" + this.GetType() +
+                           "> already has an instance on scene. Component will be destroyed.");
 #if UNITY_EDITOR
             UnityEditor.EditorApplication.delayCall -= DestroySelf;
-            UnityEditor.EditorApplication.delayCall += DestroySelf;    
+            UnityEditor.EditorApplication.delayCall += DestroySelf;
 #endif
         }
     }
- 
-    
+
+
     private void DestroySelf()
     {
-        if(Application.isPlaying)
+        if (Application.isPlaying)
             Destroy(this);
         else
             DestroyImmediate(this);
