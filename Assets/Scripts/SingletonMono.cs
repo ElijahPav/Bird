@@ -1,7 +1,5 @@
 ﻿using UnityEngine;
 
-//todo: советую приводить кодярник из интернета к кодстайлу, который принят на проекте
-
 public class SingletonMono<T> : MonoBehaviour where T : MonoBehaviour
 {
     private static T instance;
@@ -22,6 +20,7 @@ public class SingletonMono<T> : MonoBehaviour where T : MonoBehaviour
     {
         if (instance == null)
             instance = this as T;
+
         else if (instance != this)
             DestroySelf();
     }

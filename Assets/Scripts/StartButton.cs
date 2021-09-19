@@ -7,7 +7,6 @@ namespace UnityEngine.UI
     public class StartButton : Button
     {
         public event Action StartButtonClick;
-        //todo: это поле пока стоит оставить приватным, в будущем оно тоже навряд ли будет публичным
         private bool isButtonActive = true;
 
         protected override void Start()

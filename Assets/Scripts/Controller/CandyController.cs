@@ -7,30 +7,30 @@ using Random = UnityEngine.Random;
 public class CandyController : MonoBehaviour
 {
     [SerializeField] private GameObject candyPrefab;
-    private Vector3 defaultPosition = new Vector3(2.15f, 3.82f, 0);
+    private Vector3 defaultPosition = new Vector3(-2.15f, 3.82f, 0);
     private const int wallSize = 10;
-    private const float delta = 0.77f;
+    private const float DistanceBetweenCandies = 0.77f;
     private int direction = 1;
     private GameObject candy;
 
     private void Start()
     {
-        candy = Instantiate(candyPrefab, this.transform);
-        CandyDefault();
-        GameController.Instance.Bird.birdDeath += CandyDefault;
+        candy = Instantiate(candyPrefab, transform);
+        SetCandyDefault();
+        GameController.Instance.Bird.birdDeath += SetCandyDefault;
         GameController.Instance.Bird.birdRebound += SetCandy;
-        UIController.Instance.startButton.StartButtonClick += SetCandy;
+        
     }
 
     private void OnDestroy()
     {
-        GameController.Instance.Bird.birdDeath -= CandyDefault;
+        GameController.Instance.Bird.birdDeath -= SetCandyDefault;
         GameController.Instance.Bird.birdRebound -= SetCandy;
-        UIController.Instance.startButton.StartButtonClick -= SetCandy;
+       
         
     }
 
-    private void CandyDefault()
+    private void SetCandyDefault()
     {
         candy.SetActive((false));
         candy.transform.position = defaultPosition;
@@ -42,7 +42,7 @@ public class CandyController : MonoBehaviour
         if (!candy.activeSelf)
         {
             int position = Random.Range(0, wallSize);
-            candy.transform.position = new Vector3(defaultPosition.x * direction, defaultPosition.y - position * delta);
+            candy.transform.position = new Vector3(defaultPosition.x * direction, defaultPosition.y - position * DistanceBetweenCandies);
             candy.SetActive(true);
         }
 
