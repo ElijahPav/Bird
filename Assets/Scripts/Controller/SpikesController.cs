@@ -12,6 +12,7 @@ public class SpikesController : MonoBehaviour
     private const float DistanceBetweenSpikes = 0.77f;
     private Vector3 defaultPosition = new Vector3(2.6f, 3.82f, 0);
     private Vector3 defaultRotation = new Vector3(0, 0, 90);
+    private float additionalValueForSpikesPosition = 0.2f;
     private float direction = 1;
 
 
@@ -22,6 +23,7 @@ public class SpikesController : MonoBehaviour
         GameController.Instance.Bird.birdDeath += SetSpikesToDefault;
         //UIController.Instance.startButton.StartButtonClick += SetSpikes;
         GameController.Instance.Bird.birdRebound += SetSpikes;
+        defaultPosition = new Vector3(Camera.main.ViewportToWorldPoint(new Vector2(1, 1)).x-additionalValueForSpikesPosition, defaultPosition.y,0);
     }
 
     private void OnDestroy()

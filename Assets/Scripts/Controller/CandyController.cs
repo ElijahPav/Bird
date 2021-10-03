@@ -8,9 +8,10 @@ public class CandyController : MonoBehaviour
 {
     [SerializeField] private GameObject candyPrefab;
     private Vector3 defaultPosition = new Vector3(-2.15f, 3.82f, 0);
+    private float additionalValueForCandyPosition = 0.75f;
     private const int wallSize = 10;
     private const float DistanceBetweenCandies = 0.77f;
-    private int direction = 1;
+    private int direction = -1;
     private GameObject candy;
 
     private void Start()
@@ -19,7 +20,7 @@ public class CandyController : MonoBehaviour
         SetCandyDefault();
         GameController.Instance.Bird.birdDeath += SetCandyDefault;
         GameController.Instance.Bird.birdRebound += SetCandy;
-        
+        defaultPosition = new Vector3(Camera.main.ViewportToWorldPoint(new Vector2(1, 1)).x-additionalValueForCandyPosition, defaultPosition.y,0);
     }
 
     private void OnDestroy()
@@ -34,7 +35,7 @@ public class CandyController : MonoBehaviour
     {
         candy.SetActive((false));
         candy.transform.position = defaultPosition;
-        direction = 1;
+        direction = -1;
     }
 
     private void SetCandy()
