@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class CandyController : MonoBehaviour
@@ -11,7 +8,6 @@ public class CandyController : MonoBehaviour
     private float additionalValueForCandyPosition = 0.75f;
     private const int wallSize = 10;
     private const float DistanceBetweenCandies = 0.77f;
-    private int direction = -1;
     private GameObject candy;
 
     private void Start()
@@ -20,22 +16,21 @@ public class CandyController : MonoBehaviour
         SetCandyDefault();
         GameController.Instance.Bird.birdDeath += SetCandyDefault;
         GameController.Instance.Bird.birdRebound += SetCandy;
-        defaultPosition = new Vector3(Camera.main.ViewportToWorldPoint(new Vector2(1, 1)).x-additionalValueForCandyPosition, defaultPosition.y,0);
+        defaultPosition =
+            new Vector3(Camera.main.ViewportToWorldPoint(new Vector2(1, 1)).x - additionalValueForCandyPosition,
+                defaultPosition.y, 0);
     }
 
     private void OnDestroy()
     {
         GameController.Instance.Bird.birdDeath -= SetCandyDefault;
         GameController.Instance.Bird.birdRebound -= SetCandy;
-       
-        
     }
 
     private void SetCandyDefault()
     {
         candy.SetActive((false));
         candy.transform.position = defaultPosition;
-        direction = -1;
     }
 
     private void SetCandy()
@@ -43,10 +38,9 @@ public class CandyController : MonoBehaviour
         if (!candy.activeSelf)
         {
             int position = Random.Range(0, wallSize);
-            candy.transform.position = new Vector3(defaultPosition.x * direction, defaultPosition.y - position * DistanceBetweenCandies);
+            candy.transform.position = new Vector3(defaultPosition.x * GameController.Instance.Bird.direction,
+                defaultPosition.y - position * DistanceBetweenCandies);
             candy.SetActive(true);
         }
-
-        direction *= -1;
     }
 }

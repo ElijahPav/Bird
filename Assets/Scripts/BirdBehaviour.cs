@@ -5,18 +5,17 @@ public class BirdBehaviour : MonoBehaviour
 {
     [SerializeField] private float horizontalSpeed;
     [SerializeField] private float verticalForce;
-    [SerializeField] private float verticalForceAfterWallCollision;
     public event Action birdDeath;
     public event Action birdRebound;
     public event Action birdCandy;
-    private float direction = 1;
+    public float direction = 1;
+    //private Animator birdAnimator;
     private Rigidbody2D rb;
     private Transform tr;
     private const string wallTag = "Wall";
     private const string spikeTag = "Spike";
     private const string candyTag = "Candy";
 
-   
 
     private void Awake()
     {
@@ -31,12 +30,18 @@ public class BirdBehaviour : MonoBehaviour
         rb.velocity = new Vector2(horizontalSpeed * direction, rb.velocity.y);
     }
 
+    // private void Start()
+    // {
+    //     birdAnimator=GetComponent<Animator>();
+    // }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
             rb.velocity = new Vector2(horizontalSpeed * direction, 0);
             rb.AddForce(Vector2.up * verticalForce, ForceMode2D.Impulse);
+            GetComponent<BirdAnimationController>().makeFlap();
         }
     }
 
@@ -47,7 +52,6 @@ public class BirdBehaviour : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y + 180 * direction, 0);
             direction *= -1;
             rb.velocity = new Vector2(horizontalSpeed * direction, rb.velocity.y);
-            //rb.AddForce(Vector2.up * verticalForceAfterWallCollision, ForceMode2D.Impulse);
             birdRebound?.Invoke();
         }
 
@@ -62,8 +66,7 @@ public class BirdBehaviour : MonoBehaviour
     {
         if (other.CompareTag(candyTag))
         {
-           //Debug.Log(candyTag);
-           birdCandy?.Invoke();
+            birdCandy?.Invoke();
         }
     }
 

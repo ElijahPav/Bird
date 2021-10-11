@@ -8,22 +8,22 @@ public class PointCounterController : MonoBehaviour
     private void Start()
     {
         GameController.Instance.Bird.birdRebound += CounterUpdate;
-        GameController.Instance.Bird.birdDeath += BirdDeth;
+        GameController.Instance.Bird.birdDeath += BirdDeath;
         pointCounter.text = null;
     }
 
     private void OnDestroy()
     {
         GameController.Instance.Bird.birdRebound -= CounterUpdate;
-        GameController.Instance.Bird.birdDeath -= BirdDeth;
+        GameController.Instance.Bird.birdDeath -= BirdDeath;
     }
 
     private void CounterUpdate()
     {
-        pointCounter.text = GameController.Instance.Points.ToString();
+        pointCounter.text = GameController.Instance.score.ToString();
     }
 
-    private void BirdDeth()
+    private void BirdDeath()
     {
         pointCounter.text = null;
     }

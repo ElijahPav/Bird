@@ -25,6 +25,7 @@
     <setting file="file://C:/Program Files/Unity/Hub/Editor/2019.4.12f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.2d.tilemap/Editor/GridPaintPaletteWindow.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.timeline@1.2.17/Editor/treeview/Snapping/SnapEngine.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.timeline@1.2.17/Editor/CustomEditors/ClipEditor.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Controller/PlayerPrefsController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Unity/Hub/Editor/2019.4.12f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/Slider.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.animation@3.2.5/Editor/SkinningModule/UI/WeightToolbar.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.timeline@1.2.17/Editor/treeview/Drawers/Layers/MarkersLayer.cs" root0="SKIP_HIGHLIGHTING" />
@@ -104,7 +105,12 @@
       <workItem from="1632130833130" duration="704000" />
       <workItem from="1632947901844" duration="713000" />
       <workItem from="1633092212846" duration="1844000" />
-      <workItem from="1633281178415" duration="5228000" />
+      <workItem from="1633281178415" duration="5229000" />
+      <workItem from="1633546823212" duration="814000" />
+      <workItem from="1633682001649" duration="2672000" />
+      <workItem from="1633865478824" duration="1171000" />
+      <workItem from="1633958367002" duration="7638000" />
+      <workItem from="1633968504147" duration="238000" />
     </task>
     <servers />
   </component>

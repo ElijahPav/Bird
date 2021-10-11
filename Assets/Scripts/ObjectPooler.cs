@@ -81,6 +81,17 @@ public class ObjectPooler : MonoBehaviour
         return null;
     }
 
+    public void SetSpikesToDefault(Vector3 defaultRotation,Vector3 defaultPosition)
+    {
+        
+        foreach (var spike in GetAllPooledSpikes())
+        {
+            spike.transform.eulerAngles = defaultRotation;
+            spike.transform.position = defaultPosition;
+            spike.SetActive(false);
+        }
+    }
+
 
     public GameObject GetPooledObject(int index)
     {

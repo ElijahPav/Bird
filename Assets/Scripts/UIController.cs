@@ -6,35 +6,50 @@ public class UIController : SingletonMono<UIController>
 {
     public StartButton StartButton
     {
-        get { return startButton; }
+        get => startButton;
         private set { startButton = value; }
     }
 
     [SerializeField] private StartButton startButton;
     [SerializeField] private TextMeshProUGUI candyCounter;
-
     [SerializeField] private Image candyImage;
+    [SerializeField] private TextMeshProUGUI bestScoreLog;
+    [SerializeField] private TextMeshProUGUI bestScore;
 
     private void Start()
     {
-        candyCounter.text = PlayerPrefs.GetInt("Candys").ToString();
+        bestScore.text = PlayerPrefsController.Instance.GetBestScore().ToString();
+        candyCounter.text = PlayerPrefsController.Instance.GetCandiesCount().ToString();
         StartButton.StartButtonClick += StartButtonClick;
-        GameController.Instance.Bird.birdDeath += BirdDeth;
+        GameController.Instance.Bird.birdDeath += BirdDeath;
     }
 
     private void StartButtonClick()
     {
-        candyCounter.gameObject.SetActive(false);
-        candyImage.gameObject.SetActive(false);
-        StartButton.gameObject.SetActive(false);
+        for (int i = 0; i < transform.GetChildCount(); i++)
+        {
+            transform.GetChild(i).gameObject.SetActive(false);
+        }
+        //GetComponentInChildren<GameObject>().SetActive(false);
+        // bestScore.gameObject.SetActive(false);
+        // candyCounter.gameObject.SetActive(false);
+        // candyImage.gameObject.SetActive(false);
+        // StartButton.gameObject.SetActive(false);
     }
 
 
-    private void BirdDeth()
+    private void BirdDeath()
     {
-        StartButton.gameObject.SetActive(true);
-        candyImage.gameObject.SetActive(true);
-        candyCounter.text = PlayerPrefs.GetInt("Candys").ToString();
-        candyCounter.gameObject.SetActive(true);
+        bestScore.text = PlayerPrefsController.Instance.GetBestScore().ToString();
+        candyCounter.text = PlayerPrefsController.Instance.GetCandiesCount().ToString();
+        for (int i = 0; i < transform.GetChildCount(); i++)
+        {
+            transform.GetChild(i).gameObject.SetActive(true);
+        }
+        // GetComponentInChildren<GameObject>().SetActive(true);
+        // bestScore.gameObject.SetActive(true);
+        // StartButton.gameObject.SetActive(true);
+        // candyImage.gameObject.SetActive(true);
+        //candyCounter.gameObject.SetActive(true);
     }
 }

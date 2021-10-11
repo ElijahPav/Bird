@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2491824980712159119}
   - component: {fileID: 3442395159055588619}
   - component: {fileID: 2303445908139245863}
+  - component: {fileID: 2118002222}
   m_Layer: 0
   m_Name: Bird
   m_TagString: Bird
@@ -78,7 +79,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
-  m_Size: {x: 0.043741904, y: 0.04506006}
+  m_Size: {x: 0.049508054, y: 0.04996024}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -102,7 +103,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.64, y: 0.64}
-    newSize: {x: 0.043741904, y: 0.04506006}
+    newSize: {x: 0.049508054, y: 0.04996024}
     adaptiveTilingThreshold: 0.5
     drawMode: 1
     adaptiveTiling: 0
@@ -146,3 +147,20 @@ MonoBehaviour:
   horizontalSpeed: 3
   verticalForce: 8
   verticalForceAfterWallCollision: 4
+  direction: 1
+--- !u!111 &2118002222
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2649867023768610895}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 16fdd932038ff7343a33e61297c3e511, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 16fdd932038ff7343a33e61297c3e511, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
