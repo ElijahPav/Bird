@@ -4,6 +4,7 @@ using UnityEngine;
 public class PointCounterController : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI pointCounter;
+    [SerializeField] public Color32[] textColor = new Color32[7];
 
     private void Start()
     {
@@ -20,6 +21,8 @@ public class PointCounterController : MonoBehaviour
 
     private void CounterUpdate()
     {
+        int colorIndex = Mathf.RoundToInt(GameController.Instance.coloeCurve.Evaluate(GameController.Instance.score));
+        pointCounter.faceColor = textColor[colorIndex];
         pointCounter.text = GameController.Instance.score.ToString();
     }
 

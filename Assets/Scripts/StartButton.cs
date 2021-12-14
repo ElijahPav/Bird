@@ -1,7 +1,5 @@
 ﻿using System;
 
-//todo: нужно это в using перемещать
-//https://metanit.com/sharp/tutorial/3.25.php
 namespace UnityEngine.UI
 {
     public class StartButton : Button

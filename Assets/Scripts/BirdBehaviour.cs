@@ -9,9 +9,7 @@ public class BirdBehaviour : MonoBehaviour
     public event Action birdRebound;
     public event Action birdCandy;
     public float direction = 1;
-    //private Animator birdAnimator;
     private Rigidbody2D rb;
-    private Transform tr;
     private const string wallTag = "Wall";
     private const string spikeTag = "Spike";
     private const string candyTag = "Candy";
@@ -20,7 +18,6 @@ public class BirdBehaviour : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        tr = transform;
         Reborn();
     }
 
@@ -29,12 +26,6 @@ public class BirdBehaviour : MonoBehaviour
         //todo: подумать насчет логики передвижения без rigidbody
         rb.velocity = new Vector2(horizontalSpeed * direction, rb.velocity.y);
     }
-
-    // private void Start()
-    // {
-    //     birdAnimator=GetComponent<Animator>();
-    // }
-
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))

@@ -30,11 +30,6 @@ public class UIController : SingletonMono<UIController>
         {
             transform.GetChild(i).gameObject.SetActive(false);
         }
-        //GetComponentInChildren<GameObject>().SetActive(false);
-        // bestScore.gameObject.SetActive(false);
-        // candyCounter.gameObject.SetActive(false);
-        // candyImage.gameObject.SetActive(false);
-        // StartButton.gameObject.SetActive(false);
     }
 
 
@@ -46,10 +41,5 @@ public class UIController : SingletonMono<UIController>
         {
             transform.GetChild(i).gameObject.SetActive(true);
         }
-        // GetComponentInChildren<GameObject>().SetActive(true);
-        // bestScore.gameObject.SetActive(true);
-        // StartButton.gameObject.SetActive(true);
-        // candyImage.gameObject.SetActive(true);
-        //candyCounter.gameObject.SetActive(true);
     }
 }
